@@ -29,6 +29,16 @@ app.debug = True
 # https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
 clients = list()
 
+# https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
+def send_all(msg):
+    for client in clients:
+        client.put( msg )
+
+# https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
+def send_all_json(obj):
+    send_all( json.dumps(obj) )
+
+# https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
 class Client:
     def __init__(self):
         self.queue = queue.Queue()
@@ -97,12 +107,17 @@ def read_ws(ws,client):
             print("WS RECV: %s" % msg)
             if (msg is not None):
                 packet = json.loads(msg)
-                mesg = json.dumps(packet)
-                client.put(mesg)
+                # https://pynative.com/python-check-if-key-exists-in-json-and-iterate-the-json-array/
+                if 'method' in packet:
+                    if packet['method'] == 'update':
+                        myWorld.set(packet['entity'],packet['data'])
+                        send_all_json(myWorld.world())
+                else:
+                    send_all_json(packet)
             else:
                 break
     except:
-        print("Error")
+        '''Done'''
             
 
 # https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
