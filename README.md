@@ -59,3 +59,12 @@ Contributors
 * Mark Galloway
 * Abram Hindle
 * Cole Mackenzie
+
+Resources
+=========
+https://github.com/abramhindle/WebSocketsExamples/<br/>
+https://pynative.com/python-check-if-key-exists-in-json-and-iterate-the-json-array/<br/>
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes<br/>
+https://javascript.info/websocket#data-transfer<br/>
+https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event<br/>
+https://stackoverflow.com/questions/43963518/to-copy-the-values-from-one-dictionary-to-other-dictionary-in-javascript<br/>

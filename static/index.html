@@ -54,6 +54,7 @@
                 //moveTo(x,y);
                 fillStyle = entity["colour"];
                 strokeStyle = fillStyle;
+                // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
                 arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, true);
                 moveTo(x+35, y)
                 arc(x, y, 35, 0, Math.PI, false);
@@ -279,6 +280,7 @@
                     // https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event
                     console.log("WebSocket Recv:" + msg.data)
                     let data = JSON.parse(msg.data)
+                    // https://stackoverflow.com/questions/43963518/to-copy-the-values-from-one-dictionary-to-other-dictionary-in-javascript
                     Object.assign(world, data)
                     drawNextFrame()
                     drawFrame();
